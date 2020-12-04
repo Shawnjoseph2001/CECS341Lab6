@@ -23,7 +23,7 @@
 module Control(
     input [5:0] Op,
     input [5:0] Func,
-    output reg RegDst, MemRead, MemToReg, MemWrite, ALUSrc, RegWrite,
+    output reg RegDst, MemRead, MemToReg, MemWrite, ALUSrc, RegWrite, Jump,
     output reg [1:0] Branch,
     output reg [3:0] ALUCntl
     );
@@ -38,6 +38,7 @@ module Control(
     MemToReg <= 1'b0;
     MemWrite <= 1'b0;
     ALUSrc <= 1'b0;
+    Jump <= 1'b0;
     case(Func)
     6'h20:begin //add
     ALUCntl <= 4'b1010;
@@ -83,6 +84,7 @@ module Control(
     RegDst <= 1'b0;
     ALUCntl <= 4'b1010;
     ALUSrc <= 1'b1;
+        Jump <= 1'b0;
     end
     6'h09:begin //addiu
         Branch <= 2'b0;
@@ -103,6 +105,7 @@ module Control(
     RegDst <= 1'b0;
     ALUCntl <= 4'b0000;
     ALUSrc <= 1'b1;
+        Jump <= 1'b0;
     end
     6'h0D:begin //Ori
     RegWrite <= 1'b1;
@@ -114,6 +117,7 @@ module Control(
     ALUSrc <= 1'b1;
     MemWrite <= 1'b0;
     ALUCntl <= 4'b0001;
+    Jump <= 1'b0;
     end
     6'h23:begin //lw
         Branch <= 2'b0;
@@ -124,6 +128,7 @@ module Control(
     MemWrite <= 1'b0;
     MemRead <= 1'b1;
     MemToReg <= 1'b1;
+    Jump <= 1'b0;
     end
     6'h2B:begin //sw
         Branch <= 2'b0;
@@ -134,6 +139,7 @@ module Control(
     MemWrite <= 1'b1;
     MemRead <= 1'b0;
     MemToReg <= 1'b0;
+    Jump <= 1'b0;
     end
     6'h04:begin //beq
     RegDst <= 1'b0;
@@ -144,6 +150,7 @@ module Control(
     MemWrite <= 1'b0;
     MemRead <= 1'b0;
     MemToReg <= 1'b0;
+    Jump <= 1'b0;
     end
     6'h05:begin //bne
     RegDst <= 1'b0;
@@ -154,6 +161,7 @@ module Control(
     MemWrite <= 1'b0;
     MemRead <= 1'b0;
     MemToReg <= 1'b0;
+    Jump <= 1'b0;
     end
     6'h0A:begin //slti
     Branch <= 2'b0;
@@ -164,6 +172,7 @@ module Control(
     RegDst <= 1'b0;
     ALUCntl <= 4'b1111;
     ALUSrc <= 1'b1;
+    Jump <= 1'b0;
     end
     6'h0B:begin //sltiu
     Branch <= 2'b0;
@@ -184,6 +193,7 @@ module Control(
     RegDst <= 1'b0;
     ALUCntl <= 4'b0100;
     ALUSrc <= 1'b1;
+    Jump <= 1'b0;
     //$display("Error! check control file");
     end
     endcase
