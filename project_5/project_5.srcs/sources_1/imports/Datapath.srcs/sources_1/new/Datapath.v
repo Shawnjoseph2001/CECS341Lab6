@@ -34,17 +34,21 @@ module Datapath(input clk, input reset, output [31:0] Dout);
     wire mtr;
     wire mw;
     wire ALUSrc;
+    wire jump;
     wire [31:0] ALUin;
     wire [31:0] SEval;
     wire [31:0] rd;
     wire [31:0] shl2;
     wire [31:0] Co4;
+    wire [27:0] jse;
+    wire [31:0] jAddr;
+    wire [31:0] PCUpdate;
     
 ProgramCounter pc(.clk(clk),.reset(reset),.Din(Cin),.Dout(Cout));
 	assign Co4 = Cout + 3'd4;
 
     ShiftLeftTwo sll(.in(SEval), .out(shl2));
-    Mux32x1 adder(.zero(Co4), .one(shl2 + Co4), .ctrl(br[0] & Z | br[1] & ~Z), .out(Cin));
+    Mux32x1 adder(.zero(Co4), .one(shl2 + Co4), .ctrl(br[0] & Z | br[1] & ~Z), .out(PCUpdate));
 
 
 Instruction_Memory imem(.Addr(Cout),.Inst_out(Inst_out));
@@ -57,7 +61,7 @@ Mux4x1 m(.zero(Inst_out[20:16]), .one(Inst_out[15:11]), .ctrl(RegDst), .out(wr))
             SignExtend se(.in(Inst_out[15:0]), .out(SEval));  
                  
     Control cntl(.Op(Inst_out[31:26]),.Func(Inst_out[5:0]), .ALUCntl(ALUCntl), .RegWrite(RegWrite),
-    .Branch(br), .MemRead(mr), .MemToReg(mtr), .MemWrite(mw), .ALUSrc(ALUSrc), .RegDst(RegDst));
+    .Branch(br), .MemRead(mr), .MemToReg(mtr), .MemWrite(mw), .ALUSrc(ALUSrc), .RegDst(RegDst), .Jump(jump));
     
     Mux32x1 e(.zero(T), .one(SEval), .ctrl(ALUSrc), .out(ALUin));
     
@@ -66,4 +70,8 @@ Mux4x1 m(.zero(Inst_out[20:16]), .one(Inst_out[15:11]), .ctrl(RegDst), .out(wr))
     DataMem d(.clk(clk), .addr(ALUout), .wr_data(T), .mem_wr(mw), .mem_rd(mr), .rd_data(rd));
     
     Mux32x1 dMux(.one(rd), .zero(ALUout), .ctrl(mtr), .out(Dout));
+    
+    shiftLeft2_26 sladdr(.in(Inst_out[25:0]), .out(jse));
+    assign jAddr = {jse, Co4[31:28]};
+    Mux32x1 jumpMux(.one(jAddr), .zero(PCUpdate), .ctrl(jump), .out(Cin));
 endmodule

@@ -1,7 +1,7 @@
 Vivado Simulator 2019.2
 Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
-Running: /tools/Xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab -wto 492badede3b4491295cef8ff36086d43 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Datapath_tb_behav xil_defaultlib.Datapath_tb xil_defaultlib.glbl -log elaborate.log 
-Using 8 slave threads.
+Running: /tools/Xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab -wto 492badede3b4491295cef8ff36086d43 --incr --debug all --relax --mt 32 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Datapath_tb_behav xil_defaultlib.Datapath_tb xil_defaultlib.glbl -log elaborate.log 
+Using 32 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
@@ -18,6 +18,7 @@ Compiling module xil_defaultlib.SignExtend
 Compiling module xil_defaultlib.Control
 Compiling module xil_defaultlib.ALU
 Compiling module xil_defaultlib.DataMem
+Compiling module xil_defaultlib.shiftLeft2_26
 Compiling module xil_defaultlib.Datapath
 Compiling module xil_defaultlib.Datapath_tb
 Compiling module xil_defaultlib.glbl

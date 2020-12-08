@@ -183,7 +183,21 @@ module Control(
     RegDst <= 1'b0;
     ALUCntl <= 4'b0100;
     ALUSrc <= 1'b1;
+    Jump <= 1'b0;
     end
+    
+    6'h2:begin //jump
+    Branch <= 2'b11;
+    RegWrite <= 1'b0;
+        MemWrite <= 1'b0;
+    MemRead <= 1'b0;
+    MemToReg <= 1'b0;
+    RegDst <= 1'b0;
+    ALUCntl <= 4'b1110;
+    ALUSrc <= 1'b0;
+    Jump <= 1'b1;
+    end
+    
     default:begin
         Branch <= 2'b0;
     RegWrite <= 1'b0;
@@ -194,7 +208,7 @@ module Control(
     ALUCntl <= 4'b0100;
     ALUSrc <= 1'b1;
     Jump <= 1'b0;
-    //$display("Error! check control file");
+    $display("Error! check control file");
     end
     endcase
     end

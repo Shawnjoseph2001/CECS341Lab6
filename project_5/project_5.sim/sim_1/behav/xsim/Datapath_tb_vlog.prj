@@ -11,6 +11,7 @@ verilog xil_defaultlib  \
 "../../../../project_5.srcs/sources_1/imports/Datapath.srcs/sources_1/new/ShiftLeftTwo.v" \
 "../../../../project_5.srcs/sources_1/imports/Datapath.srcs/sources_1/new/SignExtend.v" \
 "../../../../project_5.srcs/sources_1/imports/Datapath.srcs/sources_1/imports/Downloads/regfile32.v" \
+"../../../../project_5.srcs/sources_1/new/shiftLeft2_26.v" \
 "../../../../project_5.srcs/sources_1/imports/Datapath.srcs/sim_1/new/Datapath_tb.v" \
 
 # compile glbl module

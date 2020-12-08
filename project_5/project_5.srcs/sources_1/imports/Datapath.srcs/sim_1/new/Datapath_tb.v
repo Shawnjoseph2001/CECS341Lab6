@@ -49,7 +49,7 @@ module Datapath_tb;
             $display("Register %d: %h", i, uut.rf32.regArray[i]);
             end
             $display("Final Memory values:");
-            for(i = 0; i < 7'd45; i = i + 1) begin
+            for(i = 0; i < 7'd44; i = i + 1) begin
             $display("%d: %h", i, uut.d.dmem[i]);
             end
         end
