@@ -94,22 +94,22 @@ module ALU(
             			V = 0;
             			N = 0;
             			if(A[31] & ~B[31])
-            			ALUout = 0;
-            			else if(B[31] & ~A[31])
             			ALUout = 32'hFFFFFFFF;
+            			else if(B[31] & ~A[31])
+            			ALUout = 32'h0;
             			else if(~B[31] & ~A[31])
             			begin
             			if(A > B)
-            			ALUout = 32'hFFFFFFFF;
+            			ALUout = 32'h0;
             			else
-            			ALUout = 0;
+            			ALUout = 32'hFFFFFFFF;
             			end
             			else
             			begin
             			if(A < B)
-            			ALUout = 32'hFFFFFFFF;
+            			ALUout = 32'h0;
             			else
-            			ALUout = 0;
+            			ALUout = 32'hFFFFFFFF;
             			end
             		end
             4'b0100: begin //SLTU
@@ -117,9 +117,9 @@ module ALU(
             			V = 0;
             			N = 0;
             			if(A > B)
-            			ALUout = 32'hFFFFFFFF;
+            			ALUout = 32'h0;
             			else
-            			ALUout = 0;
+            			ALUout = 32'hFFFFFFFF;
             		end
             default: begin
             		C = 0;

@@ -39,10 +39,10 @@ module Datapath_tb;
             #1 clock = 0;
             #1 clock = 1;
             Reset = 0;
-            for(i = 0; i < 7'd52; i = i + 1) begin
+            for(i = 0; i < 7'd90; i = i + 1) begin
             #1 clock = ~clock;
             if(~clock) begin
-            $display("Time: %t, Output: %h", $time, Dout);
+            $display("Number: %d Time: %t, Output: %h", i, $time, Dout);
             end
             end
             for(i = 0; i < 7'd32; i = i + 1) begin

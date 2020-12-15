@@ -208,7 +208,7 @@ module Control(
     ALUCntl <= 4'b0100;
     ALUSrc <= 1'b1;
     Jump <= 1'b0;
-    $display("Error! check control file");
+    //$display("Error! check control file. Opcode: %h, Function: %h", Op, Func);
     end
     endcase
     end

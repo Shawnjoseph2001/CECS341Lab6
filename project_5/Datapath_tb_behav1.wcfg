@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="504501fs"></ZoomEndTime>
-      <Cursor1Time time="120000fs"></Cursor1Time>
+      <ZoomStartTime time="68857fs"></ZoomStartTime>
+      <ZoomEndTime time="1068358fs"></ZoomEndTime>
+      <Cursor1Time time="235440fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="102"></ValueColumnWidth>
+      <NameColumnWidth column_width="129"></NameColumnWidth>
+      <ValueColumnWidth column_width="128"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="13" />
+   <WVObjectSize size="29" />
    <wvobject type="logic" fp_name="/Datapath_tb/Reset">
       <obj_property name="ElementShortName">Reset</obj_property>
       <obj_property name="ObjectShortName">Reset</obj_property>
@@ -67,14 +67,78 @@
       <obj_property name="ElementShortName">S[31:0]</obj_property>
       <obj_property name="ObjectShortName">S[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/Datapath_tb/uut/ALUout">
-      <obj_property name="ElementShortName">ALUout[31:0]</obj_property>
-      <obj_property name="ObjectShortName">ALUout[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
    <wvobject type="array" fp_name="/Datapath_tb/uut/pc/Dout">
       <obj_property name="ElementShortName">Dout[31:0]</obj_property>
       <obj_property name="ObjectShortName">Dout[31:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Datapath_tb/uut/adder/out">
+      <obj_property name="ElementShortName">out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/Datapath_tb/uut/rf32/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/Datapath_tb/uut/rf32/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/Datapath_tb/uut/rf32/D_En">
+      <obj_property name="ElementShortName">D_En</obj_property>
+      <obj_property name="ObjectShortName">D_En</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Datapath_tb/uut/rf32/D_Addr">
+      <obj_property name="ElementShortName">D_Addr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">D_Addr[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Datapath_tb/uut/rf32/S_Addr">
+      <obj_property name="ElementShortName">S_Addr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">S_Addr[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Datapath_tb/uut/rf32/T_Addr">
+      <obj_property name="ElementShortName">T_Addr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">T_Addr[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Datapath_tb/uut/rf32/D">
+      <obj_property name="ElementShortName">D[31:0]</obj_property>
+      <obj_property name="ObjectShortName">D[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Datapath_tb/uut/rf32/S">
+      <obj_property name="ElementShortName">S[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Datapath_tb/uut/rf32/T">
+      <obj_property name="ElementShortName">T[31:0]</obj_property>
+      <obj_property name="ObjectShortName">T[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Datapath_tb/uut/cntl/Op">
+      <obj_property name="ElementShortName">Op[5:0]</obj_property>
+      <obj_property name="ObjectShortName">Op[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Datapath_tb/uut/pc/Din">
+      <obj_property name="ElementShortName">Din[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Din[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Datapath_tb/uut/jAddr">
+      <obj_property name="ElementShortName">jAddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">jAddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Datapath_tb/uut/sladdr/in">
+      <obj_property name="ElementShortName">in[25:0]</obj_property>
+      <obj_property name="ObjectShortName">in[25:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Datapath_tb/uut/sladdr/out">
+      <obj_property name="ElementShortName">out[27:0]</obj_property>
+      <obj_property name="ObjectShortName">out[27:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Datapath_tb/uut/pc/Dout">
+      <obj_property name="ElementShortName">Dout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Dout[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Datapath_tb/uut/cntl/Func">
+      <obj_property name="ElementShortName">Func[5:0]</obj_property>
+      <obj_property name="ObjectShortName">Func[5:0]</obj_property>
    </wvobject>
 </wave_config>

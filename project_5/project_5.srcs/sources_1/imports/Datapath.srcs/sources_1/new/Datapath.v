@@ -72,6 +72,6 @@ Mux4x1 m(.zero(Inst_out[20:16]), .one(Inst_out[15:11]), .ctrl(RegDst), .out(wr))
     Mux32x1 dMux(.one(rd), .zero(ALUout), .ctrl(mtr), .out(Dout));
     
     shiftLeft2_26 sladdr(.in(Inst_out[25:0]), .out(jse));
-    assign jAddr = {jse, Co4[31:28]};
+    assign jAddr = {Co4[31:28], jse};
     Mux32x1 jumpMux(.one(jAddr), .zero(PCUpdate), .ctrl(jump), .out(Cin));
 endmodule
